@@ -1,3 +1,10 @@
+import click
+
+
+def clrscr():
+    '''clears the screen'''
+    click.clear()
+
 def not_running(key):
     match key:
         case 'quit'|'exit':
@@ -23,13 +30,20 @@ def main():
         match continue_state:
             case 'new'|'new game':
                 print('\nNew Game\n')
-                pass
+                new_load = 'new'
             case 'load'|'load game':
                 print('\nLoading Game\n')
-                pass
+                new_load = 'load'
             case _:
                 print('\nThis is not a valid argument!\n')
                 continue
+        
+        clrscr()
+
+        if new_load == 'new':
+            player_name = input('\nWhat would you like to be called?')
+        elif new_load == 'load':
+            pass
 
 
 if __name__=='__main__':
